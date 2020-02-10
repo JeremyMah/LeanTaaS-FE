@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LeanTaaS - FE Coding Challenge - Jeremy
 
-## Available Scripts
+This app displays images of selected cameras from NASA's Curiosity rover for a given sol.
 
-In the project directory, you can run:
+## Installation
+This app requires [Node.js](https://nodejs.org/) v7.6.0 to run because we use async / await.
 
-### `npm start`
+Update with Homebrew
+```sh
+$brew update
+$brew upgrade node
+```
+Update with N
+```sh
+$npm install -g n
+$sudo n latest
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Install and run the app
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Install dependencies using `npm install`
+2. Start your server using `npm start`
+3. Navigate to app in [browser](http://localhost:3000)
+4. Enjoy!
 
-### `npm test`
+## Discussion
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I used the following frameworks and technologies:  [React](https://reactjs.org/), [axios](https://github.com/axios/axios), HTML, CSS.
+I used [create-react-app](https://goo.gl/26jfy4) to generate the scaffolding for this app.
 
-### `npm run build`
+## High-level Overview
+The project's files are grouped by file type and placed in either the api folder or the components folder. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All components are functional components, with the mindset of using the [State Hook](https://reactjs.org/docs/hooks-state.html) when using states.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Here is a representation of how components are used in the code:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+CuriosityApp.js
+- Header 
+- InputForm
+  - NumberInput
+  - MultiSelect
+- ImageGallery
+  - CameraCards
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Search / API calls
+When a user changes the sol, CuriosityApp calls the `fetchPhotos()` method imported from the `Utils.js` file in the `api` folder. The result is passed to `ImageGallery` to be ingested and transformed into `CameraCards`.
+Asynchronous calls are dealt with a combination of async/await and axios.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### If the user changes sols quickly, only one request is sent
+If the user changes the sols while a request is pending, we cancel the existing request with [axios cancellation](https://github.com/axios/axios#cancellation).
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Simple Caching
+The application stores the results in-app after every fetch. If the user enters a sol that has already been used prior, `fetchPhotos()` will return the results from the in-app cache instead of making another API request. The cache is reset when the page is reloaded or if application restarts.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

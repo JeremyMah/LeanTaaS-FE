@@ -1,0 +1,15 @@
+.camera-card {
+  display: inline-block;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.camera-card img {
+  width: 100%;
+}
+
+.camera-card div {
+  padding: 10px 0px;
+}

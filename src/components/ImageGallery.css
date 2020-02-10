@@ -1,0 +1,14 @@
+.image-gallery {
+  background-color: #130f40;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: min-content;
+  grid-auto-columns: min-content;
+  flex-grow: 1;
+}
+
+.text {
+  color:#fff;
+  text-align: center;
+}

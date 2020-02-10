@@ -1,0 +1,172 @@
+.multi-select {
+  position: relative;
+  display: inline-block; 
+  width: 75%;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.selected-list {
+  position: relative;
+  padding: 5px;
+  border: 1px solid #bbb;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.selected-value {
+  position: relative;
+  display: inline-block;
+  padding: 5px 30px 5px 10px;
+  border-radius: 5px;
+  background: #b8e994;
+  color: #009432;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+
+.delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  padding-right: 8px;
+  padding-top: 3px;
+  font-size: 1.2em;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.placeholder {
+  display: inline-block;
+  padding: 5px;
+  color: #898989;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: solid #bbb;
+  border-width: 0 1px;
+  background: #fff;
+}
+
+.option {
+  padding: 10px 15px 10px 35px;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  cursor: pointer;
+  display: block;
+  position:relative;
+}
+
+.option-actions {
+  padding: 10px 15px;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  display:flex;
+  justify-content: space-between;
+}
+
+.action {
+  display:inline-block;
+  position: relative;
+  font-weight: 700;
+  color: #009432;
+  cursor: pointer;
+}
+
+.selected {
+  margin: -1px -1px 0;
+  background: #b8e994;
+}
+
+#triangle-down {
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-top: 5px;
+  margin-right: 3px;
+  border-left: .5em solid transparent;
+  border-right: .5em solid transparent;
+  border-top: 1em solid #009432;
+  vertical-align: top;
+}
+
+#triangle-up {
+  display: inline-block;
+  float: right;
+  margin-top: 5px;
+  margin-right: 3px;
+  border-left: .5em solid transparent;
+  border-right: .5em solid transparent;
+  border-bottom: 1em solid #009432;
+  vertical-align: top;
+
+}
+
+/* Custom checkbox below was borrowed and modified from w3schools */
+
+/* Hide the browser's default checkbox */
+.option input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.option:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.option input:checked ~ .checkmark {
+  background-color: #009432;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.option input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.option .checkmark:after {
+  left: 6px;
+  top: .5px;
+  width: 5px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
